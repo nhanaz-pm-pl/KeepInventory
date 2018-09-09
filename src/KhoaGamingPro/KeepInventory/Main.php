@@ -67,13 +67,13 @@ class Main extends PluginBase implements Listener {
 			    $ev->getPlayer()->sendMessage($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
 			}
 			if($this->getConfig()->get("MessageType") == "popup"){
-				$ev->getPlayer()->sendPopup($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
+			    $ev->getPlayer()->sendPopup($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
 			}
 			if($this->getConfig()->get("MessageType") == "tip"){
-				$ev->getPlayer()->sendTip($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
+			    $ev->getPlayer()->sendTip($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
 			}
 			if($this->getConfig()->get("MessageType") == "title"){
-				$ev->getPlayer()->addTitle($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
+			    $ev->getPlayer()->addTitle($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
 			}
 		}
 		else {
