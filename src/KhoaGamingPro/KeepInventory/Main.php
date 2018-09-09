@@ -11,6 +11,7 @@ use pocketmine\Player;
 use pocketmine\utils\Config;
 use pocketmine\command\ConsoleCommandSender;
 use pocketmine\command\CommandSender;
+use pocketmine\command\PluginCommand;
 
 class Main extends PluginBase implements Listener {
 	
@@ -20,6 +21,7 @@ class Main extends PluginBase implements Listener {
 		$this->getServer()->getLogger()->info(TF::GOLD."-=-++-=-++-=-++-=-++-=-++-=-++-=-++-=-");
 		$this->getServer()->getLogger()->info($this->prefix.TF::GREEN."Plugin enabled!");
 		$this->getServer()->getLogger()->info($this->prefix.TF::WHITE."Plugin by".TF::YELLOW." KhoaGamingPro");
+		$this->getServer()->getLogger()->info($this->prefix.TF::WHITE."Plugin version: ".TF::AQUA.$this->getDescription()->getVersion());
 		$this->getServer()->getLogger()->info(TF::GOLD."-=-++-=-++-=-++-=-++-=-++-=-++-=-++-=-");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
                 $this->saveDefaultConfig();
