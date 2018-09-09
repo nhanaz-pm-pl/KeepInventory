@@ -1,12 +1,13 @@
-# Config file
-# Keep inventory true or false
+# Tệp cấu hình
+# Đặt true hoặc false để bật hoặc tắt giữ đồ sau khi chết
+
 KeepInventory: true
 
-# Message types: message, popup, tip, title
+# Loại tin nhắn: message, popup, tip, title
 
-MessageType: message
+MessageType: title
 
-# Message after player's inventory has been kept
-# You can use '&' to make colored text
+# Tin nhắn đồ của người chơi đã được giữ lại sau khi chết
+# Dùng '&' để làm chữ màu
 
-MessageAfterDeath: "&aYour inventory has been kept"
+MessageAfterDeath: "&aĐồ của bạn đã được giữ"
