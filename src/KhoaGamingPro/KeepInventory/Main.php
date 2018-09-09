@@ -12,7 +12,7 @@ use pocketmine\utils\Config;
 use pocketmine\command\ConsoleCommandSender;
 use pocketmine\command\CommandSender;
 
-class KeepInventory extends PluginBase implements Listener {
+class Main extends PluginBase implements Listener {
 	
 	public $prefix = TF::GOLD."[".TF::GREEN."Keep".TF::AQUA."Inventory".TF::GOLD."] ".TF::RESET;
 	
