@@ -22,7 +22,7 @@ class Main extends PluginBase implements Listener {
 		$this->getServer()->getLogger()->info($this->prefix.TF::WHITE."Plugin by".TF::YELLOW." KhoaGamingPro");
 		$this->getServer()->getLogger()->info(TF::GOLD."-=-++-=-++-=-++-=-++-=-++-=-++-=-++-=-");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->saveDefaultConfig();
+                $this->saveDefaultConfig();
 		if($this->getConfig()->get("KeepInventory") == true){
 			$this->getServer()->getLogger()->notice($this->prefix.TF::GREEN."Keep inventory enabled. Player's inventory will keep after death.");
 			$this->getServer()->getLogger()->notice($this->prefix.TF::GREEN."You can disable it in config.yml");
