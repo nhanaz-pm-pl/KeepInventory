@@ -19,24 +19,24 @@ class Main extends PluginBase implements Listener {
 	
 	public function onEnable(){
 		$this->getServer()->getLogger()->info(TF::GOLD."-=-++-=-++-=-++-=-++-=-++-=-++-=-++-=-");
-		$this->getServer()->getLogger()->info($this->prefix.TF::GREEN."Plugin enabled!");
-		$this->getServer()->getLogger()->info($this->prefix.TF::WHITE."Plugin by".TF::YELLOW." KhoaGamingPro");
-		$this->getServer()->getLogger()->info($this->prefix.TF::WHITE."Plugin version: ".TF::AQUA.$this->getDescription()->getVersion());
+		$this->getServer()->getLogger()->info($this->prefix.TF::GREEN."Plugin đã được kích hoạt!");
+		$this->getServer()->getLogger()->info($this->prefix.TF::WHITE."Plugin của".TF::YELLOW." KhoaGamingPro");
+		$this->getServer()->getLogger()->info($this->prefix.TF::WHITE."Phiên bản plugin: ".TF::AQUA.$this->getDescription()->getVersion());
 		$this->getServer()->getLogger()->info(TF::GOLD."-=-++-=-++-=-++-=-++-=-++-=-++-=-++-=-");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-                $this->saveDefaultConfig();
+        $this->saveDefaultConfig();
 		if($this->getConfig()->get("KeepInventory") == true){
-			$this->getServer()->getLogger()->notice($this->prefix.TF::GREEN."Keep inventory enabled. Player's inventory will keep after death.");
-			$this->getServer()->getLogger()->notice($this->prefix.TF::GREEN."You can disable it in config.yml");
+			$this->getServer()->getLogger()->notice($this->prefix.TF::GREEN."Đã bật giữ đồ sau khi chết. Người chơi sẽ không mất đồ sau khi chết");
+			$this->getServer()->getLogger()->notice($this->prefix.TF::GREEN."Bạn có thể tắt nó đi trong config.yml");
 		}
 		else {
-			$this->getServer()->getLogger()->notice($this->prefix.TF::RED."Keep inventory disabled. Player's inventory won't keep after death");
-			$this->getServer()->getLogger()->notice($this->prefix.TF::RED."You can enable it in config.yml");
+			$this->getServer()->getLogger()->notice($this->prefix.TF::RED."Đã tắt giữ đồ sau khi chết. Người chơi sẽ mất đồ sau khi chết");
+			$this->getServer()->getLogger()->notice($this->prefix.TF::RED."Bạn có thể bật nó lên trong config.yml");
 		}
 			
 	}
     public function onDisable(){
-		$this->getServer()->getLogger()->info($this->prefix.TF::RED."Plugin disabled!");
+		$this->getServer()->getLogger()->info($this->prefix.TF::RED."Plugin đã vô hiệu hóa!");
 	}
     
 	public function translateColors($string){
@@ -69,13 +69,13 @@ class Main extends PluginBase implements Listener {
 			    $ev->getPlayer()->sendMessage($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
 			}
 			if($this->getConfig()->get("MessageType") == "popup"){
-			    $ev->getPlayer()->sendPopup($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
+				$ev->getPlayer()->sendPopup($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
 			}
 			if($this->getConfig()->get("MessageType") == "tip"){
-			    $ev->getPlayer()->sendTip($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
+				$ev->getPlayer()->sendTip($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
 			}
 			if($this->getConfig()->get("MessageType") == "title"){
-			    $ev->getPlayer()->addTitle($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
+				$ev->getPlayer()->addTitle($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
 			}
 		}
 		else {
