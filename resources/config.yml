@@ -7,5 +7,6 @@ KeepInventory: true
 MessageType: message
 
 # Message after player's inventory has been kept
+# You can use '&' to make colored text
 
 MessageAfterDeath: "&aYour inventory has been kept"
