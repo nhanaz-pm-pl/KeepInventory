@@ -65,7 +65,7 @@ class Main extends PluginBase implements Listener {
 	public function PlayerDeath(PlayerDeathEvent $ev){
 		if($this->getConfig()->get("KeepInventory") == true){
 		    $ev->setKeepInventory(true);
-			if($this->getConfig()->get("MessageType") == "chat"){
+			if($this->getConfig()->get("MessageType") == "chat" or "message"){
 			    $ev->getPlayer()->sendMessage($this->translateColors($this->getConfig()->get("MessageAfterDeath")));
 			}
 			if($this->getConfig()->get("MessageType") == "popup"){
