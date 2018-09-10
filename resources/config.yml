@@ -3,9 +3,9 @@
 
 KeepInventory: true
 
-# Loại tin nhắn: message, popup, tip, title
+# Loại tin nhắn: chat, popup, tip, title
 
-MessageType: title
+MessageType: chat
 
 # Tin nhắn đồ của người chơi đã được giữ lại sau khi chết
 # Dùng '&' để làm chữ màu
