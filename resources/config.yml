@@ -3,10 +3,16 @@
 KeepInventory: true
 
 # Message types: chat, popup, tip, title
-
 MessageType: chat
 
 # Message after player's inventory has been kept
 # You can use '&' to make colored text
-
 MessageAfterDeath: "&aYour inventory has been kept"
+
+# Permission is used to allow only certain players to have their inventory kept
+Permission:
+  # Name is the name of the permission. You are most likely to use this in your permission manager plugin.
+  Name: "keepinventory.permission"
+  # Default is the group this permission will be given to by default
+  # The options are "op" (ops only), "true" (everyone), "false" (no one), "notop" (everyone except ops)
+  Default: op
