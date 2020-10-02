@@ -21,7 +21,8 @@ class Main extends PluginBase implements Listener {
 	public function onPlayerDeath(PlayerDeathEvent $ev) : void{
 		if($this->getConfig()->get("KeepInventory") === true){
 		    $player = $ev->getPlayer();
-		    if($player->hasPermission($this->getConfig()->getNested("Permission.Name"))){
+		    if($player->hasPermission($this->getConfig()->getNested("Permission.Name")) &&
+				!in_array($player->getLevel()->getFolderName(), $this->getConfig()->get("DisabledWorlds", []), true)){
 				$message = TF::colorize($this->getConfig()->get("MessageAfterDeath"));
 				switch($this->getConfig()->get("MessageType")){
 					case "chat":

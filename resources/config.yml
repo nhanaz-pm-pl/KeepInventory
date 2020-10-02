@@ -16,3 +16,6 @@ Permission:
   # Default is the group this permission will be given to by default
   # The options are "op" (ops only), "true" (everyone), "false" (no one), "notop" (everyone except ops)
   Default: op
+
+DisabledWorlds:
+  - nether
