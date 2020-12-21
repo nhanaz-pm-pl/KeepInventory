@@ -23,6 +23,7 @@ class Main extends PluginBase implements Listener {
 		    $player = $ev->getPlayer();
 		    if($player->hasPermission($this->getConfig()->getNested("Permission.Name")) &&
 				!in_array($player->getLevel()->getFolderName(), $this->getConfig()->get("DisabledWorlds", []), true)){
+			    	$ev->setKeepInventory(true);
 				$message = TF::colorize($this->getConfig()->get("MessageAfterDeath"));
 				switch($this->getConfig()->get("MessageType")){
 					case "chat":
