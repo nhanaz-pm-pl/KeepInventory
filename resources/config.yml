@@ -2,11 +2,8 @@
 # Keep inventory true or false
 KeepInventory: true
 
-# Message types: chat, popup, tip, title
-
-MessageType: chat
+# Message types: message, popup, tip, title
+MessageType: message
 
 # Message after player's inventory has been kept
-# You can use '&' to make colored text
-
-MessageAfterDeath: "&aYour inventory has been kept"
+MessageAfterDeath: "§aYour inventory has been kept"

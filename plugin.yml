@@ -1,6 +1,9 @@
 name: KeepInventory
-version: 1.2
-api: 3.0.0
-author: KhoaGamingPro
+version: 1.0.0
+api: 4.0.0
+authors:
+  - KhoaGamingPro
+  - NhanAZ
 description: Keep player's inventory after player death
 main: KhoaGamingPro\KeepInventory\Main
+src-namespace-prefix: KhoaGamingPro\KeepInventory
