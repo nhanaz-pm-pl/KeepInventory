@@ -52,7 +52,7 @@ class Main extends PluginBase implements Listener
 	}
 
 	/**
-	 * @param PlayerDeath $event
+	 * @param PlayerDeathEvent $event
 	 * @priority HIGHEST
 	 */
 	public function PlayerDeath(PlayerDeathEvent $event)
