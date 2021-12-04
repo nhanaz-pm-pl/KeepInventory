@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Growth plugin for PocketMine-MP
+ * KeepInventory plugin for PocketMine-MP
  * Copyright (C) 2021 NhanAZ <https://github.com/NhanAZ>
  *
- * Growth is licensed under the GNU General Public License v3.0 (GPL-3.0 License)
+ * KeepInventory is licensed under the GNU General Public License v3.0 (GPL-3.0 License)
  *
  * GNU General Public License <https://www.gnu.org/licenses/>
  *
