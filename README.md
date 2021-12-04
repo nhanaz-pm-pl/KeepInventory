@@ -1,11 +1,11 @@
 # General
 **Keep items in the player's inventory after the player dies**
 
-[![](https://poggit.pmmp.io/ci.shield/nhanaz-pm-pl/KeepInventory/KeepInventory)](https://poggit.pmmp.io/ci/nhanaz-pm-pl/KeepInventory/KeepInventory)
 [![](https://poggit.pmmp.io/shield.state/KeepInventory)](https://poggit.pmmp.io/p/KeepInventory)
 [![](https://poggit.pmmp.io/shield.api/KeepInventory)](https://poggit.pmmp.io/p/KeepInventory)
 [![](https://poggit.pmmp.io/shield.dl.total/KeepInventory)](https://poggit.pmmp.io/p/KeepInventory)
 [![](https://poggit.pmmp.io/shield.dl/KeepInventory)](https://poggit.pmmp.io/p/KeepInventory)
+[![](https://poggit.pmmp.io/ci.shield/nhanaz-pm-pl/KeepInventory/KeepInventory)](https://poggit.pmmp.io/ci/nhanaz-pm-pl/KeepInventory/KeepInventory)
 
 # Config
 ```yaml
@@ -59,11 +59,12 @@ Notices: true
 
 # Contacts
 **You can contact me directly through the platforms listed below**
-| Platform | Contact            |
-| -------- | ------------------ |
-| Discord  | NhanAZ#9115        |
-| Email    | NhanAZ@pm.me       |
-| Twitter  | @ThanhNhanAZ       |
+| Platform | NhanAZ             | KhoaGamingVN            |
+| -------- | ------------------ | ----------------------- |
+| Discord  | NhanAZ#9115        | Dangkhoa2683#6985       |
+| Email    | NhanAZ@pm.me       | khoagaming123@gmail.com |
+| Twitter  | @ThanhNhanAZ       | ---                     |
+
 
 # License
 [**GNU General Public License v3.0**](https://www.gnu.org/licenses/gpl-3.0.html)
