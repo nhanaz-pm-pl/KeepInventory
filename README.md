@@ -14,6 +14,7 @@ MessageType: message
 MessageAfterDeath: "§aYour inventory has been kept"
 ```
 
+# Contacts
 **You can contact me directly through the platforms listed below**
 | Platform | KhoaGamingVN            | NhanAZ       |
 | -------- | ----------------------- | ------------ |
