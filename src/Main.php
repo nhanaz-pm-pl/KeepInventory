@@ -35,20 +35,6 @@ class Main extends PluginBase implements Listener
 	{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
-		$notices = $this->getConfig()->get("Notices");
-		$keepInventory = $this->getConfig()->get("KeepInventory");
-		if ($notices == true) {
-			if ($keepInventory == true) {
-				$this->getLogger()->notice("Items in the player's inventory that will be kept after they die are enabled.");
-				$this->getLogger()->notice("Edit `KeepInventory: true` to `KeepInventory: false` in `config.yml` to disable.");
-			} else {
-				$this->getLogger()->notice("Items in the player's inventory that will not be kept after they die are enabled.");
-				$this->getLogger()->notice("Edit `KeepInventory: false` to `KeepInventory: true` in `config.yml` to enable.");
-			}
-		} else {
-			$this->getLogger()->warning("The notifications related to this plugin are being disabled!");
-			$this->getLogger()->warning("Edit `Notices: true` in `config.yml` to enable!");
-		}
 	}
 
 	/**

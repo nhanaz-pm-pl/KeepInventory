@@ -42,19 +42,7 @@ MessageAfterDeath: "Items in your inventory have been kept"
 # MessageType: tip (Sends a tip message to the player)
 # MessageType: actionbarmessage (Send a small text to the user's screen)
 MessageType: none
-
-# Notices
-#
-# Value: true or false
-# Default value: true (Recomend using)
-#
-# Value description:
-# Notices: true (Notifications related to this plugin will be displayed on the console)
-# Notices: false (Notifications related to this plugin will not be displayed on the console)
-Notices: true
 ...
-
-
 ```
 
 # Contacts
