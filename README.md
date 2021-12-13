@@ -47,11 +47,11 @@ MessageType: none
 
 # Contacts
 **You can contact me directly through the platforms listed below**
-| Platform | NhanAZ             | KhoaGamingVN            |
-| :------: | :----------------: | :---------------------: |
-| Discord  | NhanAZ#9115        | Dangkhoa2683#6985       |
-| Email    | NhanAZ@pm.me       | khoagaming123@gmail.com |
-| Twitter  | @ThanhNhanAZ       | ---                     |
+| Platform | Dangkhoa2683            | NhanAZ             |
+| :------: | :---------------------: | :----------------: |
+| Discord  | Dangkhoa2683#6985       | NhanAZ#9115        |
+| Email    | ---                     | NhanAZ@pm.me       |
+| Twitter  | ---                     | @ThanhNhanAZ       |
 
 
 # License
