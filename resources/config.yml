@@ -1,34 +1,27 @@
 ---
-# KeepInventory
-#
 # Value: true or false
 # Default value: true (Recomend using)
 #
 # Value description:
-# KeepInventory: true (Items in the player's inventory will be kept after the they die)
-# KeepInventory: false (Items in the player's inventory will be lost after the they die)
+# : true (Items in the player's inventory will be kept after the they die)
+# : false (Items in the player's inventory will be lost after the they die)
 KeepInventory: true
 
-
-# MessageAfterDeath
-#
 # Value: "MessageAfterDeath (String)"
 # Default value: §aItems in your inventory have been kept
 #
 # Value description: Notifications sent to players after they die
 MessageAfterDeath: "Items in your inventory have been kept"
 
-# Message types
-#
 # Value: none, message, popup, tip, title, subtitle, actionbarmessage
 # Default value: none (Recomend using)
 #
 # Value description:
-# MessageType: none (No messages have been sent to the player)
-# MessageType: message (Sends a direct chat message to a player)
-# MessageType: title (Send a title text to the user's screen)
-# MessageType: popup (Sends a popup message to the player)
-# MessageType: tip (Sends a tip message to the player)
-# MessageType: actionbarmessage (Send a small text to the user's screen)
+# : none (No messages have been sent to the player)
+# : message (Sends a direct chat message to a player)
+# : title (Send a title text to the user's screen)
+# : popup (Sends a popup message to the player)
+# : tip (Sends a tip message to the player)
+# : actionbarmessage (Send a small text to the user's screen)
 MessageType: none
 ...
