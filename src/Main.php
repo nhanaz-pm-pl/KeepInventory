@@ -1,18 +1,5 @@
 <?php
 
-/**
- * KeepInventory plugin for PocketMine-MP
- * Copyright (C) 2021 NhanAZ <https://github.com/NhanAZ>
- *
- * KeepInventory is licensed under the GNU General Public License v3.0 (GPL-3.0 License)
- *
- * GNU General Public License <https://www.gnu.org/licenses/>
- *
- * Discord :: NhanAZ#9115
- * Email   :: NhanAZ@pm.me
- * Twitter :: @ThanhNhanAZ
- */
-
 declare(strict_types=1);
 
 namespace NhanAZ\KeepInventory;
@@ -21,28 +8,14 @@ use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerDeathEvent;
 
-/**
- * Class Main
- * @package NhanAZ\KeepInventory
- */
-class Main extends PluginBase implements Listener
-{
+class Main extends PluginBase implements Listener {
 
-	/**
-	 * @return void
-	 */
-	protected function onEnable() : void
-	{
+	protected function onEnable() : void {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
 	}
 
-	/**
-	 * @param PlayerDeathEvent $event
-	 * @priority HIGHEST
-	 */
-	public function PlayerDeath(PlayerDeathEvent $event)
-	{
+	public function PlayerDeath(PlayerDeathEvent $event) {
 		$player = $event->getPlayer();
 		$keepInventory = $this->getConfig()->get("KeepInventory");
 		$messageType = $this->getConfig()->get("MessageType");
