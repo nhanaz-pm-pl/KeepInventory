@@ -17,27 +17,25 @@ class Main extends PluginBase implements Listener {
 
 	public function PlayerDeath(PlayerDeathEvent $event) {
 		$player = $event->getPlayer();
-		$keepInventory = $this->getConfig()->get("KeepInventory");
-		$messageType = $this->getConfig()->get("MessageType");
 		$messageAfterDeath = $this->getConfig()->get("MessageAfterDeath");
-		if ($keepInventory == true) {
+		if ($this->getConfig()->get("KeepInventory") == true) {
 			$event->setKeepInventory(true);
-			if ($messageType !== "none") {
-				if ($messageType == "message") {
+			switch ($this->getConfig()->get("MessageType")) {
+				case "message":
 					$player->sendMessage($messageAfterDeath);
-				}
-				if ($messageType == "title") {
+					break;
+				case "title":
 					$player->sendTitle($messageAfterDeath);
-				}
-				if ($messageType == "popup") {
+					break;
+				case "popup":
 					$player->sendPopup($messageAfterDeath);
-				}
-				if ($messageType == "tip") {
+					break;
+				case "tip":
 					$player->sendTip($messageAfterDeath);
-				}
-				if ($messageType == "actionbarmessage") {
+					break;
+				case "actionbarmessage":
 					$player->sendActionBarMessage($messageAfterDeath);
-				}
+					break;
 			}
 		} else {
 			$event->setKeepInventory(false);
