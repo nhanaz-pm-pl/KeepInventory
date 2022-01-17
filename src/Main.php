@@ -8,14 +8,17 @@ use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerDeathEvent;
 
-class Main extends PluginBase implements Listener {
+class Main extends PluginBase implements Listener
+{
 
-	protected function onEnable() : void {
+	protected function onEnable(): void
+	{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
 	}
 
-	public function PlayerDeath(PlayerDeathEvent $event) {
+	public function PlayerDeath(PlayerDeathEvent $event)
+	{
 		$player = $event->getPlayer();
 		$messageAfterDeath = $this->getConfig()->get("MessageAfterDeath");
 		if ($this->getConfig()->get("KeepInventory") == true) {
