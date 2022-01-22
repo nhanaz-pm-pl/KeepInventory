@@ -17,27 +17,47 @@ class Main extends PluginBase implements Listener
 		$this->saveDefaultConfig();
 	}
 
+	public function keepInventory($event) {
+		$player = $event->getPlayer();
+		$event->setKeepInventory(true);
+		$msgAfterDeath = $this->getConfig()->get("MsgAfterDeath");
+		switch ($this->getConfig()->get("MsgType")) {
+			case "message":
+				$player->sendMessage($msgAfterDeath);
+				break;
+			case "title":
+				$player->sendTitle($msgAfterDeath);
+				break;
+			case "popup":
+				$player->sendPopup($msgAfterDeath);
+				break;
+			case "tip":
+				$player->sendTip($msgAfterDeath);
+				break;
+			case "actionbar":
+				$player->sendActionBarMessage($msgAfterDeath);
+				break;
+		}
+	}
+
 	public function PlayerDeath(PlayerDeathEvent $event)
 	{
-		$player = $event->getPlayer();
-		$messageAfterDeath = $this->getConfig()->get("MessageAfterDeath");
 		if ($this->getConfig()->get("KeepInventory") == true) {
-			$event->setKeepInventory(true);
-			switch ($this->getConfig()->get("MessageType")) {
-				case "message":
-					$player->sendMessage($messageAfterDeath);
+			$worldName = $event->getPlayer()->getWorld()->getDisplayName();
+			$worlds = $this->getConfig()->get("Worlds");
+			switch ($this->getConfig()->get("Mode")) {
+				case "all":
+					$this->keepInventory($event);
 					break;
-				case "title":
-					$player->sendTitle($messageAfterDeath);
+				case "whitelist":
+					if (in_array($worldName, $worlds)) {
+						$this->keepInventory($event);
+					}
 					break;
-				case "popup":
-					$player->sendPopup($messageAfterDeath);
-					break;
-				case "tip":
-					$player->sendTip($messageAfterDeath);
-					break;
-				case "actionbarmessage":
-					$player->sendActionBarMessage($messageAfterDeath);
+				case "blacklist":
+					if (!in_array($worldName, $worlds)) {
+						$this->keepInventory($event);
+					}
 					break;
 			}
 		} else {

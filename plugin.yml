@@ -1,6 +1,6 @@
 ---
 name: KeepInventory
-version: 1.0.1
+version: 2.0.0
 api: 4.0.0
 author:
   - KhoaGamingVN
@@ -8,5 +8,5 @@ author:
 main: NhanAZ\KeepInventory\Main
 website: https://github.com/NhanAZ
 src-namespace-prefix: NhanAZ\KeepInventory
-description: Keep inventory after player dies
+description: Prevents players from losing items on death
 ...
