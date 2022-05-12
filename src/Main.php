@@ -8,11 +8,9 @@ use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerDeathEvent;
 
-class Main extends PluginBase implements Listener
-{
+class Main extends PluginBase implements Listener {
 
-	protected function onEnable(): void
-	{
+	protected function onEnable(): void {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
 	}
@@ -40,8 +38,7 @@ class Main extends PluginBase implements Listener
 		}
 	}
 
-	public function PlayerDeath(PlayerDeathEvent $event)
-	{
+	public function PlayerDeath(PlayerDeathEvent $event) {
 		if ($this->getConfig()->get("KeepInventory") == true) {
 			$worldName = $event->getPlayer()->getWorld()->getDisplayName();
 			$worlds = $this->getConfig()->get("Worlds");
