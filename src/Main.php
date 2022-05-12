@@ -30,7 +30,7 @@ class Main extends PluginBase implements Listener {
 	}
 
 	public function PlayerDeath(PlayerDeathEvent $event) {
-		if ($this->getConfig()->get("KeepInventory") == true) {
+		if ($this->getConfig()->get("KeepInventory")) {
 			$worldName = $event->getPlayer()->getWorld()->getDisplayName();
 			$worlds = $this->getConfig()->get("Worlds");
 			switch ($this->getConfig()->get("Mode")) {
