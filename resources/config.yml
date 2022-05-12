@@ -11,7 +11,7 @@ Worlds: []
 # Worlds: ["world1", "world2"]
 
 # Notifications sent to players after death
-MsgAfterDeath: "Items in your inventory have been kept"
+MsgAfterDeath: "You died, but your inventory is safe!"
 
 # none : No messages have been sent to the player
 # message : Sends a direct chat message to a player
