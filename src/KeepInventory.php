@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace KeepInventory;
 
 use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\plugin\PluginBase;
+use pocketmine\event\player\PlayerDeathEvent;
 
 class KeepInventory extends PluginBase implements Listener {
 
-	protected function onEnable() : void {
+	protected function onEnable(): void {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
 	}
 
-	public function keepInventory($event) {
+	public function keepInventory($event): void {
 		$player = $event->getPlayer();
 		$event->setKeepInventory(true);
 		$msgAfterDeath = $this->getConfig()->get("MsgAfterDeath", "You died, but your inventory is safe!");
@@ -29,7 +29,7 @@ class KeepInventory extends PluginBase implements Listener {
 		};
 	}
 
-	public function onPlayerDeath(PlayerDeathEvent $event) {
+	public function onPlayerDeath(PlayerDeathEvent $event): void {
 		if ($this->getConfig()->get("KeepInventory", true)) {
 			$worldName = $event->getPlayer()->getWorld()->getDisplayName();
 			$worlds = $this->getConfig()->get("Worlds", []);
