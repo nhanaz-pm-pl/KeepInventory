@@ -4,21 +4,18 @@ declare(strict_types=1);
 
 namespace NhanAZ\KeepInventory;
 
-use pocketmine\event\Listener;
+use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerDeathEvent;
 
-class Main extends PluginBase implements Listener {
+class Main extends PluginBase {
 
 	protected function onEnable(): void {
-		$this->getServer()->getPluginManager()->registerEvents($this, $this);
+		$this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
 		$this->saveDefaultConfig();
 	}
 
-	public function keepInventory($event): void {
-		$player = $event->getPlayer();
-		$event->setKeepInventory(true);
-		$msgAfterDeath = $this->getConfig()->get("MsgAfterDeath", "You died, but your inventory is safe!");
+	private function sendMsgAfterDeath(Player $player, string $msgAfterDeath): void {
 		match ($this->getConfig()->get("MsgType", "none")) {
 			"message" => $player->sendMessage($msgAfterDeath),
 			"title" => $player->sendTitle($msgAfterDeath),
@@ -29,27 +26,43 @@ class Main extends PluginBase implements Listener {
 		};
 	}
 
-	public function onPlayerDeath(PlayerDeathEvent $event): void {
-		if ($this->getConfig()->get("KeepInventory", true)) {
-			$worldName = $event->getPlayer()->getWorld()->getDisplayName();
-			$worlds = $this->getConfig()->get("Worlds", []);
-			switch ($this->getConfig()->get("Mode", "all")) {
-				case "all":
-					$this->keepInventory($event);
-					break;
-				case "whitelist":
-					if (in_array($worldName, $worlds, true)) {
-						$this->keepInventory($event);
-					}
-					break;
-				case "blacklist":
-					if (!in_array($worldName, $worlds, true)) {
-						$this->keepInventory($event);
-					}
-					break;
-			}
+	private function handleSendMsgAfterDeath(Player $player, bool $sendMessage): void {
+		if ($sendMessage) {
+			$msgAfterDeath = $this->getConfig()->get("MsgAfterDeathTrue", "You died, but your inventory is safe!");
+			$this->sendMsgAfterDeath($player, $msgAfterDeath);
 		} else {
-			$event->setKeepInventory(false);
+			$msgAfterDeath = $this->getConfig()->get("MsgAfterDeathFalse", "You died and your inventory is not safe!");
+			$this->sendMsgAfterDeath($player, $msgAfterDeath);
+		}
+	}
+
+	public function handleKeepInventory(PlayerDeathEvent $event, bool $keepInventory, bool $sendMessage): void {
+		$player = $event->getPlayer();
+		$worldName = $event->getPlayer()->getWorld()->getDisplayName();
+		$worlds = $this->getConfig()->get("Worlds", []);
+		switch ($this->getConfig()->get("Mode", "all")) {
+			case "all":
+				$event->setKeepInventory($keepInventory);
+				$this->handleSendMsgAfterDeath($player, $sendMessage);
+				break;
+			case "whitelist":
+				if (in_array($worldName, $worlds, true)) {
+					$event->setKeepInventory($keepInventory);
+					$this->handleSendMsgAfterDeath($player, $sendMessage);
+				} else {
+					$event->setKeepInventory(!$keepInventory);
+					$this->handleSendMsgAfterDeath($player, !$sendMessage);
+				}
+				break;
+			case "blacklist":
+				if (!in_array($worldName, $worlds, true)) {
+					$event->setKeepInventory($keepInventory);
+					$this->handleSendMsgAfterDeath($player, $sendMessage);
+				} else {
+					$event->setKeepInventory(!$keepInventory);
+					$this->handleSendMsgAfterDeath($player, !$sendMessage);
+				}
+				break;
 		}
 	}
 }
