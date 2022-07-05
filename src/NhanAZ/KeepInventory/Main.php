@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace KeepInventory;
+namespace NhanAZ\KeepInventory;
 
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerDeathEvent;
 
-class KeepInventory extends PluginBase implements Listener {
+class Main extends PluginBase implements Listener {
 
 	protected function onEnable(): void {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);

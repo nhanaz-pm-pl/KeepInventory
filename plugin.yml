@@ -1,8 +1,7 @@
 ---
 name: KeepInventory
 version: 2.1.1
-main: KeepInventory\KeepInventory
-src-namespace-prefix: KeepInventory
+main: NhanAZ\KeepInventory\Main
 api: 4.0.0
 website: https://github.com/NhanAZ
 author: NhanAZ
