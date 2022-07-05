@@ -1,6 +1,6 @@
 ---
 name: KeepInventory
-version: 2.1.2
+version: 2.1.3
 main: NhanAZ\KeepInventory\Main
 api: 4.0.0
 website: https://github.com/NhanAZ
