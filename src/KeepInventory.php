@@ -7,23 +7,19 @@ namespace KeepInventory;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\plugin\PluginBase;
-use pocketmine\utils\Config;
-use function in_array;
 
 class KeepInventory extends PluginBase implements Listener {
-	protected Config $config;
 
 	protected function onEnable() : void {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
-		$this->config = $this->getConfig();
 	}
 
 	public function keepInventory($event) {
 		$player = $event->getPlayer();
 		$event->setKeepInventory(true);
-		$msgAfterDeath = $this->config->get("MsgAfterDeath", "You died, but your inventory is safe!");
-		match ($this->config->get("MsgType", "none")) {
+		$msgAfterDeath = $this->getConfig()->get("MsgAfterDeath", "You died, but your inventory is safe!");
+		match ($this->getConfig()->get("MsgType", "none")) {
 			"message" => $player->sendMessage($msgAfterDeath),
 			"title" => $player->sendTitle($msgAfterDeath),
 			"popup" => $player->sendPopup($msgAfterDeath),
@@ -34,10 +30,10 @@ class KeepInventory extends PluginBase implements Listener {
 	}
 
 	public function onPlayerDeath(PlayerDeathEvent $event) {
-		if ($this->config->get("KeepInventory", true)) {
+		if ($this->getConfig()->get("KeepInventory", true)) {
 			$worldName = $event->getPlayer()->getWorld()->getDisplayName();
-			$worlds = $this->config->get("Worlds", []);
-			switch ($this->config->get("Mode", "all")) {
+			$worlds = $this->getConfig()->get("Worlds", []);
+			switch ($this->getConfig()->get("Mode", "all")) {
 				case "all":
 					$this->keepInventory($event);
 					break;
