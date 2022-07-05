@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NhanAZ\KeepInventory;
 
 use pocketmine\player\Player;
+use pocketmine\utils\TextFormat;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerDeathEvent;
 
@@ -17,11 +18,11 @@ class Main extends PluginBase {
 
 	private function sendMsgAfterDeath(Player $player, string $msgAfterDeath): void {
 		match ($this->getConfig()->get("MsgType", "none")) {
-			"message" => $player->sendMessage($msgAfterDeath),
-			"title" => $player->sendTitle($msgAfterDeath),
-			"popup" => $player->sendPopup($msgAfterDeath),
-			"tip" => $player->sendTip($msgAfterDeath),
-			"actionbar" => $player->sendActionBarMessage($msgAfterDeath),
+			"message" => $player->sendMessage(TextFormat::colorize($msgAfterDeath)),
+			"title" => $player->sendTitle(TextFormat::colorize($msgAfterDeath)),
+			"popup" => $player->sendPopup(TextFormat::colorize($msgAfterDeath)),
+			"tip" => $player->sendTip(TextFormat::colorize($msgAfterDeath)),
+			"actionbar" => $player->sendActionBarMessage(TextFormat::colorize($msgAfterDeath)),
 			default => "None"
 		};
 	}
