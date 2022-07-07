@@ -1,8 +1,8 @@
 ---
 name: KeepInventory
-version: 2.1.3
+version: 2.1.4+dev
 main: NhanAZ\KeepInventory\Main
-api: 4.0.0
+api: 5.0.0
 website: https://github.com/NhanAZ
 author: NhanAZ
 authors: [KhoaGamingVN]
