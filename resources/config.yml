@@ -24,4 +24,7 @@ MsgAfterDeathFalse: "You died and your inventory is not safe!"
 # tip : Sends a tip message to the player
 # actionbar : Send a small text to the user's screen
 MsgType: none
+
+# Config version
+ConfigVersion: "1.0.0" # Please don't edit or delete this line
 ...
