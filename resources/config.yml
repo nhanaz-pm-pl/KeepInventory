@@ -10,7 +10,4 @@ KeepInventory: true
 Mode: all
 Worlds: []
 # Worlds: ["world1", "world2"]
-
-# Config version
-ConfigVersion: "1.0.0" # Please don't edit or delete this line
 ...
