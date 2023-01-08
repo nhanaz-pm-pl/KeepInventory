@@ -1,12 +1,12 @@
 ---
 # true : Prevents players from losing items on death
 # false : Use the server's default keep inventory mode (keepInventory=false)
-KeepInventory: true
+keepInventory: true
 
 # all : All worlds will be affected by KeepInventory Mode
 # whitelist : All worlds listed below will be affected by KeepInventory Mode
 # blacklist : All worlds not listed below will be affected by KeepInventory Mode
-Mode: all
-Worlds: []
-# Worlds: ["world1", "world2"]
+mode: all
+worlds: []
+# worlds: ["world1", "world2"]
 ...

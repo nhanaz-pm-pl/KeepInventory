@@ -16,15 +16,15 @@ class Main extends PluginBase implements Listener {
 	}
 
 	public function onPlayerDeath(PlayerDeathEvent $event): void {
-		if ($this->getConfig()->get("KeepInventory", true)) {
+		if ($this->getConfig()->get("keepInventory", true)) {
 			$this->handleKeepInventory($event, true);
 		}
 	}
 
 	public function handleKeepInventory(PlayerDeathEvent $event, bool $keepInventory): void {
 		$worldName = $event->getPlayer()->getWorld()->getDisplayName();
-		$worlds = $this->getConfig()->get("Worlds", []);
-		switch ($this->getConfig()->get("Mode", "all")) {
+		$worlds = $this->getConfig()->get("worlds", []);
+		switch ($this->getConfig()->get("mode", "all")) {
 			case "all":
 				$event->setKeepInventory($keepInventory);
 				break;
