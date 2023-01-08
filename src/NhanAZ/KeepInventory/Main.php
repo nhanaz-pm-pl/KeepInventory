@@ -4,14 +4,23 @@ declare(strict_types=1);
 
 namespace NhanAZ\KeepInventory;
 
+use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerDeathEvent;
 
-class Main extends PluginBase {
+class Main extends PluginBase implements Listener {
 
 	protected function onEnable(): void {
-		$this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
+		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
+	}
+
+	public function onPlayerDeath(PlayerDeathEvent $event): void {
+		if ($this->getConfig()->get("KeepInventory", true)) {
+			$this->handleKeepInventory($event, true);
+		} else {
+			$this->handleKeepInventory($event, false);
+		}
 	}
 
 	public function handleKeepInventory(PlayerDeathEvent $event, bool $keepInventory): void {
