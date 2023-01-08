@@ -17,9 +17,9 @@ class EventListener implements Listener {
 
 	public function onPlayerDeath(PlayerDeathEvent $event): void {
 		if ($this->plugin->getConfig()->get("KeepInventory", true)) {
-			$this->plugin->handleKeepInventory($event, true, true);
+			$this->plugin->handleKeepInventory($event, true);
 		} else {
-			$this->plugin->handleKeepInventory($event, false, false);
+			$this->plugin->handleKeepInventory($event, false);
 		}
 	}
 }

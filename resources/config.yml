@@ -11,20 +11,6 @@ Mode: all
 Worlds: []
 # Worlds: ["world1", "world2"]
 
-# Message to players if their inventory is safe
-MsgAfterDeathTrue: "You died, but your inventory is safe!"
-
-# Message to players if their inventory is not safe
-MsgAfterDeathFalse: "You died and your inventory is not safe!"
-
-# none : No messages have been sent to the player
-# message : Sends a direct chat message to a player
-# title : Send a title text to the user's screen
-# popup : Sends a popup message to the player
-# tip : Sends a tip message to the player
-# actionbar : Send a small text to the user's screen
-MsgType: none
-
 # Config version
 ConfigVersion: "1.0.0" # Please don't edit or delete this line
 ...
