@@ -16,32 +16,22 @@ class Main extends PluginBase implements Listener {
 	}
 
 	public function onPlayerDeath(PlayerDeathEvent $event): void {
-		if ($this->getConfig()->get("keepInventory", true)) {
-			$this->handleKeepInventory($event, true);
-		}
-	}
-
-	public function handleKeepInventory(PlayerDeathEvent $event, bool $keepInventory): void {
-		$worldName = $event->getPlayer()->getWorld()->getDisplayName();
-		$worlds = $this->getConfig()->get("worlds", []);
-		switch ($this->getConfig()->get("mode", "all")) {
-			case "all":
-				$event->setKeepInventory($keepInventory);
-				break;
-			case "whitelist":
-				if (in_array($worldName, $worlds, true)) {
-					$event->setKeepInventory($keepInventory);
-				} else {
-					$event->setKeepInventory(!$keepInventory);
+		if ($this->getConfig()->get("keepInventory")) {
+			$worldName = $event->getPlayer()->getWorld()->getDisplayName();
+			$worlds = $this->getConfig()->get("worlds");
+			$isBlacklist = match ($this->getConfig()->get("mode")) {
+				"blacklist" => true,
+				"whitelist" => false
+			};
+			if ($isBlacklist) {
+				if (!in_array($worldName, $worlds)) {
+					$event->setKeepInventory(true);
 				}
-				break;
-			case "blacklist":
-				if (!in_array($worldName, $worlds, true)) {
-					$event->setKeepInventory($keepInventory);
-				} else {
-					$event->setKeepInventory(!$keepInventory);
+			} else {
+				if (in_array($worldName, $worlds)) {
+					$event->setKeepInventory(false);
 				}
-				break;
+			}
 		}
 	}
 }
