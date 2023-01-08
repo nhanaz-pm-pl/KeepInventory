@@ -18,8 +18,6 @@ class Main extends PluginBase implements Listener {
 	public function onPlayerDeath(PlayerDeathEvent $event): void {
 		if ($this->getConfig()->get("KeepInventory", true)) {
 			$this->handleKeepInventory($event, true);
-		} else {
-			$this->handleKeepInventory($event, false);
 		}
 	}
 
