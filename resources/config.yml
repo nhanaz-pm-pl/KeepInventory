@@ -1,5 +1,4 @@
 ---
-# KeepInventory Mode
 # true : Prevents players from losing items on death
 # false : Players from losing items on death
 KeepInventory: true
