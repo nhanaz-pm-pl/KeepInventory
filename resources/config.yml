@@ -1,11 +1,6 @@
 ---
-# - true : Prevents players from losing items on death.
-# - false : Use the server's default keep inventory mode (keepInventory=false).
-keepInventory: true
-
-# - blacklist: Only worlds which ARE NOT listed will affected by `keepInventory` mode of this plugin.
-# - whitelist: Only worlds which ARE listed will affected by `keepInventory` mode of this plugin.
+# blacklist: Keep inventory is false in the listed worlds.
+# whitelist: Keep inventory is true in the listed worlds.
 mode: blacklist
-# List names of worlds here.
 worlds: []
 ...
