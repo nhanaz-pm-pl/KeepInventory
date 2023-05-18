@@ -21,7 +21,8 @@ class Main extends PluginBase implements Listener {
 			$worlds = $this->getConfig()->get("worlds");
 			$isBlacklist = match (strval($this->getConfig()->get("mode"))) {
 				"blacklist" => true,
-				"whitelist" => false
+				"whitelist" => false,
+				default => true
 			};
 			if ($isBlacklist) {
 				if (!in_array($worldName, $worlds)) {
