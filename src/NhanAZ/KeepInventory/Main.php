@@ -19,7 +19,7 @@ class Main extends PluginBase implements Listener {
 		if ($this->getConfig()->get("keepInventory")) {
 			$worldName = $event->getPlayer()->getWorld()->getDisplayName();
 			$worlds = $this->getConfig()->get("worlds");
-			$isBlacklist = match (boolval($this->getConfig()->get("mode"))) {
+			$isBlacklist = match (strval($this->getConfig()->get("mode"))) {
 				"blacklist" => true,
 				"whitelist" => false
 			};
