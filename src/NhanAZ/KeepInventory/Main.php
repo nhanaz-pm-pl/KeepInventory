@@ -6,11 +6,13 @@ namespace NhanAZ\KeepInventory;
 
 use pocketmine\event\EventPriority;
 use pocketmine\event\Listener;
-use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\plugin\PluginBase;
+use ReflectionException;
 
 class Main extends PluginBase implements Listener
 {
+
     protected function onEnable(): void
     {
         $pluginMgr = $this->getServer()->getPluginManager();
@@ -18,29 +20,18 @@ class Main extends PluginBase implements Listener
         $this->saveDefaultConfig();
         try {
             $onDeath = $this->onPlayerDeath(...);
-            $pluginMgr->registerEvent(
-                PlayerDeathEvent::class,
-                $onDeath,
-                EventPriority::HIGHEST,
-                $this
-            );
-        } catch (\ReflectionException $e) {
+            $pluginMgr->registerEvent(PlayerDeathEvent::class, $onDeath, EventPriority::HIGHEST, $this);
+        } catch (ReflectionException $e) {
             $this->getLogger()->critical($e->getMessage());
-            $this->getServer()
-                ->getPluginManager()
-                ->disablePlugin($this);
+            $this->getServer()->getPluginManager()->disablePlugin($this);
         }
     }
 
     public function onPlayerDeath(PlayerDeathEvent $event): void
     {
-        $worldName = $event
-            ->getPlayer()
-            ->getWorld()
-            ->getDisplayName();
+        $worldName = $event->getPlayer()->getWorld()->getDisplayName();
         $worlds = $this->getConfig()->get("worlds");
         $isBlacklist = match (strval($this->getConfig()->get("mode"))) {
-            "blacklist" => true,
             "whitelist" => false,
             default => true,
         };
