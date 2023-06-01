@@ -6,8 +6,8 @@ namespace NhanAZ\KeepInventory;
 
 use pocketmine\event\EventPriority;
 use pocketmine\event\Listener;
-use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\plugin\PluginBase;
 
 class Main extends PluginBase implements Listener {
 
@@ -28,22 +28,10 @@ class Main extends PluginBase implements Listener {
 		$worldName = $event->getPlayer()->getWorld()->getDisplayName();
 		$worlds = $this->getConfig()->get("worlds");
 		$isBlacklist = match (strval($this->getConfig()->get("mode"))) {
-			"blacklist" => true,
 			"whitelist" => false,
-			default => true
+			default => true,
 		};
-		if ($isBlacklist) {
-			if (!in_array($worldName, $worlds)) {
-				$event->setKeepInventory(true);
-			} else {
-				$event->setKeepInventory(false);
-			}
-		} else {
-			if (in_array($worldName, $worlds)) {
-				$event->setKeepInventory(true);
-			} else {
-				$event->setKeepInventory(false);
-			}
-		}
+		$shouldKeepInventory = ($isBlacklist && !in_array($worldName, $worlds)) || (!$isBlacklist && in_array($worldName, $worlds));
+		$event->setKeepInventory($shouldKeepInventory);
 	}
 }
