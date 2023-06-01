@@ -29,7 +29,7 @@ class Main extends PluginBase implements Listener {
 		$worlds = $this->getConfig()->get("worlds");
 		$isBlacklist = match (strval($this->getConfig()->get("mode"))) {
 			"whitelist" => false,
-			default => true,
+			default => true
 		};
 		$shouldKeepInventory = ($isBlacklist && !in_array($worldName, $worlds)) || (!$isBlacklist && in_array($worldName, $worlds));
 		$event->setKeepInventory($shouldKeepInventory);
