@@ -19,7 +19,7 @@ class Main extends PluginBase implements Listener
         $pluginMgr->registerEvents($this, $this);
         $this->saveDefaultConfig();
         try {
-            $onDeath = $this->onPlayerDeath(...);
+            $onDeath = \Closure::fromCallable([$this, "onPlayerDeath"]);
             $pluginMgr->registerEvent(PlayerDeathEvent::class, $onDeath, EventPriority::HIGHEST, $this);
         } catch (ReflectionException $e) {
             $this->getLogger()->critical($e->getMessage());
