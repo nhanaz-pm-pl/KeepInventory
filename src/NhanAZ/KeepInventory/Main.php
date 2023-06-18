@@ -17,7 +17,7 @@ class Main extends PluginBase implements Listener {
 		$this->saveDefaultConfig();
 		try {
 			$onDeath = \Closure::fromCallable([$this, "onPlayerDeath"]);
-			$pluginMgr->registerEvent(PlayerDeathEvent::class, $onDeath, EventPriority::HIGHEST, $this);
+			$pluginMgr->registerEvent(PlayerDeathEvent::class, $onDeath, EventPriority::LOWEST, $this);
 		} catch (\ReflectionException $e) {
 			$this->getLogger()->critical($e->getMessage());
 			$this->getServer()->getPluginManager()->disablePlugin($this);
