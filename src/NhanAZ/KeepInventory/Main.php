@@ -33,5 +33,6 @@ class Main extends PluginBase implements Listener {
 		};
 		$shouldKeepInventory = ($isBlacklist && !in_array($worldName, $worlds)) || (!$isBlacklist && in_array($worldName, $worlds));
 		$event->setKeepInventory($shouldKeepInventory);
+		$shouldKeepInventory ? $event->setDrops([]) : null;
 	}
 }
